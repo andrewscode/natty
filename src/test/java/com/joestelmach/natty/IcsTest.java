@@ -130,8 +130,18 @@ public class IcsTest extends AbstractTest {
     validateDate(reference, "election day 2015", 11, 3, 2015);
     validateDate(reference, "valentine day 2014", 2, 14, 2014);
     validateDate(reference, "veterans day 2013", 11, 11, 2013);
+    validateDate(reference, "good friday 2020", 4,10,2020);
+    validateDate(reference, "good friday 2021", 4,2,2021);
   }
-  
+
+  @Test
+  public void testUpcomingHoliday2020() throws Exception {
+    Date reference = DateFormat.getDateInstance(DateFormat.SHORT).parse("11/05/2020");
+    calendarSource = new CalendarSource(reference);
+
+    validateDate(reference, "good friday", 4, 2, 2021);
+
+  }
   @Test
   public void testHolidaysWithModifiers() throws Exception {
     Date reference = DateFormat.getDateInstance(DateFormat.SHORT).parse("11/05/2011");
